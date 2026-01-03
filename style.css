@@ -1,7 +1,7 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body {
@@ -12,49 +12,35 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
   font-family: Arial, sans-serif;
+  color: white;
 }
 
 /* Botão música */
 #playMusic {
-  padding: 12px 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 20px;
-  background: linear-gradient(45deg, purple, blue);
-  color: white;
+  background: linear-gradient(45deg,#7f7cff,#ff6ad5);
+  color: black;
   font-size: 16px;
   margin-bottom: 20px;
-}
-
-/* Coração */
-#heart {
-  width: 150px;
-  height: 150px;
-  background: purple;
-  transform: rotate(-45deg);
-  position: relative;
   cursor: pointer;
 }
 
-#heart::before,
-#heart::after {
-  content: "";
+/* Coração clicável */
+#heart {
   width: 150px;
   height: 150px;
-  background: purple;
-  border-radius: 50%;
-  position: absolute;
-}
-
-#heart::before {
-  top: -75px;
-  left: 0;
-}
-
-#heart::after {
-  left: 75px;
-  top: 0;
+  background: linear-gradient(45deg,#7f7cff,#ff6ad5);
+  clip-path: polygon(
+    50% 0%, 61% 15%, 75% 15%, 85% 25%, 85% 38%,
+    75% 50%, 50% 80%, 25% 50%, 15% 38%, 15% 25%,
+    25% 15%, 39% 15%
+  );
+  position: relative;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
 }
 
 /* Foto */
@@ -64,14 +50,15 @@ body {
   max-width: 300px;
   border-radius: 20px;
   margin-top: 20px;
+  transition: transform 0.5s ease;
 }
 
-/* Corações voando */
+/* Corações flutuando */
 .hearts span {
-  position: absolute;
-  color: pink;
+  position: fixed;
   font-size: 20px;
-  animation: float 8s linear infinite;
+  animation: float linear infinite;
+  pointer-events: none;
 }
 
 @keyframes float {
@@ -83,4 +70,11 @@ body {
     transform: translateY(-10vh);
     opacity: 0;
   }
-  }
+}
+
+/* Pulso do coração */
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
