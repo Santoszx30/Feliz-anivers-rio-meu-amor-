@@ -7,18 +7,18 @@ const music = document.getElementById("music");
 
 const elogios = [
   "OIIIII MINHA <b style='color:#c77dff'>PRETINHA</b>, você é meu lugar seguro 🫦",
-  "Sua <b style='color:#ff79c6'>beleza</b> desmonta qualquer defesa minha",
-  "Você é <b style='color:#6aa8ff'>força</b> quando eu fraquejo",
-  "Te amar é fácil, difícil é não sorrir pensando em você",
+  "Seus <b style='color:#6aa8ff'>olhos</b> me fazem sorrir sem você perceber",
+  "Você me faz sentir <b style='color:#ff79c6'>especial</b> como ninguém",
+  "Seu jeitinho… só eu noto 😏",
   "Você é perigosa… do melhor jeito possível 🫦"
 ];
 
-let index = 0;
+let index = 1;
 
 function start() {
   startScreen.style.display = "none";
   app.classList.remove("hidden");
-  music.play().catch(()=>{});
+  music.play().catch(() => {});
   showNext();
 }
 
@@ -29,13 +29,13 @@ function showNext() {
   photo.classList.remove("show");
 
   setTimeout(() => {
-    photo.src = `fotos/${index + 1}.jpg`;
-    text.innerHTML = elogios[index % elogios.length];
+    photo.src = `fotos/foto${index}.jpg`;
+    text.innerHTML = elogios[(index - 1) % elogios.length];
     photo.classList.add("show");
 
     index++;
-    if (index < 5) {
+    if (index <= 20) {
       setTimeout(showNext, 4000);
     }
   }, 600);
-}
+      }
