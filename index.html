@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Minha Pretinha 💜</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você 💜</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
 
 <!-- TELA 1 -->
 <section class="screen active" id="screen1">
-  <div class="phone">
-    <p>Carregando a sua beleza...</p>
+  <div class="loader">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Purple_heart.svg">
+    <p>Carregando a sua beleza…</p>
   </div>
 
-  <div class="floating-words" id="floatingWords"></div>
+  <div id="floatingWords"></div>
 
-  <button id="startBtn">▶️ Tocar nossa música</button>
+  <button id="playMusic">▶️ Tocar nossa música</button>
 </section>
 
 <!-- TELA 2 -->
 <section class="screen" id="screen2">
-  <div id="heartContainer">
+  <div class="heart-frame">
     <img id="photo" src="fotos/1.jpg">
   </div>
 
   <h2 id="compliment"></h2>
 
-  <button id="nextPhoto">Passar</button>
-  <button id="revealBtn">Feliz aniversário meu amor 💜 Clique aqui</button>
+  <button id="next">Passar</button>
+  <button id="openLetter">Feliz aniversário meu amor 💜 Clique aqui</button>
 </section>
 
 <!-- TELA 3 -->
@@ -38,7 +40,7 @@
   <div id="letter"></div>
 </section>
 
-<audio id="music" src="audio/poesia13.mp3"></audio>
+<audio id="music" src="audio/poesia13.mp3" preload="auto"></audio>
 
 <script src="script.js"></script>
 </body>
