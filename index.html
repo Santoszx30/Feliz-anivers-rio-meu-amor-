@@ -1,47 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Minha Pretinha 💜</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teste Amor 💜</title>
+
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle at top,#2b004f,#000);
+  overflow:hidden;
+  font-family: Arial, sans-serif;
+  color:white;
+}
+
+.screen{
+  position:absolute;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.screen.active{display:flex}
+
+button{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  background:linear-gradient(45deg,#7f7cff,#ff6ad5);
+}
+
+.heart{
+  width:220px;
+  height:220px;
+  background:red;
+  transform:rotate(-45deg);
+  position:relative;
+}
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  background:red;
+  border-radius:50%;
+}
+.heart::before{top:-110px;left:0}
+.heart::after{left:110px;top:0}
+
+.heart img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+</style>
 </head>
+
 <body>
 
-<!-- CORAÇÕES E PARTÍCULAS -->
-<canvas id="particles"></canvas>
+<section class="screen active" id="s1">
+  <h1>Funcionando?</h1>
+  <button onclick="start()">CLIQUE AQUI</button>
+</section>
 
-<!-- TELA 1 -->
-<section class="screen active" id="screen1">
-  <div class="loader">
-    <div class="phone">
-      <p>Carregando a sua beleza…</p>
-    </div>
+<section class="screen" id="s2">
+  <div class="heart" onclick="nextPhoto()">
+    <img id="photo" src="fotos/1.jpg">
   </div>
-
-  <div id="floatingWords"></div>
-
-  <button id="playMusic">▶️ Tocar nossa música</button>
+  <h2 id="text"></h2>
 </section>
 
-<!-- TELA 2 -->
-<section class="screen" id="screen2">
-  <button id="heartBtn" class="heart">
-    <img id="photo" src="fotos/1.jpg" alt="foto">
-  </button>
+<audio id="music" src="audio/poesia13.mp3"></audio>
 
-  <h2 id="compliment"></h2>
+<script>
+const s1=document.getElementById("s1")
+const s2=document.getElementById("s2")
+const music=document.getElementById("music")
+const photo=document.getElementById("photo")
+const text=document.getElementById("text")
 
-  <button id="openLetter">Feliz aniversário meu amor 💜 Clique aqui</button>
-</section>
+const frases=[
+"Seus olhos me fazem sorrir sem você perceber",
+"Você me faz sentir especial melhor do que qualquer pessoa",
+"Você é perigosa… do melhor jeito possível 🫦"
+]
 
-<!-- TELA 3 -->
-<section class="screen" id="screen3">
-  <div id="letter"></div>
-</section>
+let i=0
 
-<audio id="music" src="audio/poesia13.mp3" preload="auto"></audio>
+function start(){
+  music.play()
+  s1.classList.remove("active")
+  s2.classList.add("active")
+  text.innerText=frases[0]
+}
 
-<script src="script.js"></script>
+function nextPhoto(){
+  i=(i+1)%3
+  photo.src=`fotos/${i+1}.jpg`
+  text.innerText=frases[i]
+}
+</script>
+
 </body>
-  </html>
+</html>
