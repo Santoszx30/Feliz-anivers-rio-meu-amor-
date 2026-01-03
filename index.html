@@ -1,39 +1,27 @@
     <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Minha Pretinha 💜</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Para Você 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Tela 1 - Loader -->
-<section class="screen active" id="screen1">
-  <div id="loader">
-    <div class="phone" id="phone"></div>
-    <p>Carregando a sua beleza…</p>
-  </div>
-  <div id="floatingWords"></div>
-  <button id="playMusic">▶️ Tocar nossa música</button>
-</section>
+  <!-- Corações flutuando -->
+  <div class="hearts"></div>
 
-<!-- Tela 2 - Fotos dentro do coração -->
-<section class="screen" id="screen2">
-  <div id="heartContainer">
-    <div id="heart" class="heart"></div>
-    <img id="photo" src="">
-  </div>
-  <h2 id="compliment"></h2>
-  <button id="openLetter">Feliz aniversário meu amor 💜 Clique aqui</button>
-</section>
+  <!-- Botão de música -->
+  <button id="playMusic">Tocar nossa música 🎶</button>
 
-<!-- Tela 3 - Texto final -->
-<section class="screen" id="screen3">
-  <div id="letter"></div>
-</section>
+  <!-- Coração clicável -->
+  <div id="heart"></div>
 
-<audio id="music" src="audio/poesia13.mp3" preload="auto"></audio>
-<script src="script.js" defer></script>
+  <!-- Foto -->
+  <img id="photo" src="" alt="foto" />
+
+  <audio id="music" src="audio/poesia13.mp3"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
