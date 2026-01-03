@@ -1,5 +1,3 @@
-// Elementos
-const music = document.getElementById("music");
 const playBtn = document.getElementById("playMusic");
 const heart = document.getElementById("heart");
 const photo = document.getElementById("photo");
@@ -8,14 +6,11 @@ const heartsContainer = document.querySelector(".hearts");
 // Caminho da foto
 const photoPath = "fotos/1.jpg";
 
-// ===== Música garantida no Android =====
+// ===== Música dinamicamente para garantir Android =====
 playBtn.addEventListener("click", () => {
-  music.currentTime = 0;
-  music.play().then(()=>{
-    console.log("Música tocando!");
-  }).catch(err=>{
-    console.log("Erro ao tocar música:", err);
-  });
+  const audio = new Audio("audio/poesia13.mp3");
+  audio.play().then(()=>console.log("Música tocando!"))
+    .catch(err=>console.log("Erro ao tocar música:", err));
 });
 
 // ===== Foto aparece ao clicar no coração =====
@@ -27,7 +22,7 @@ heart.addEventListener("click", () => {
 });
 
 // ===== Corações flutuando infinitamente =====
-setInterval(() => {
+setInterval(()=>{
   const heartSpan = document.createElement("span");
   heartSpan.innerText = "💜";
   heartSpan.style.left = Math.random()*100 + "vw";
