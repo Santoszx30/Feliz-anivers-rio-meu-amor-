@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Você 💜</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Minha Pretinha 💜</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- CORAÇÕES E PARTÍCULAS -->
 <canvas id="particles"></canvas>
 
 <!-- TELA 1 -->
 <section class="screen active" id="screen1">
   <div class="loader">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Purple_heart.svg">
-    <p>Carregando a sua beleza…</p>
+    <div class="phone">
+      <p>Carregando a sua beleza…</p>
+    </div>
   </div>
 
   <div id="floatingWords"></div>
@@ -25,13 +26,12 @@
 
 <!-- TELA 2 -->
 <section class="screen" id="screen2">
-  <div class="heart-frame">
-    <img id="photo" src="fotos/1.jpg">
-  </div>
+  <button id="heartBtn" class="heart">
+    <img id="photo" src="fotos/1.jpg" alt="foto">
+  </button>
 
   <h2 id="compliment"></h2>
 
-  <button id="next">Passar</button>
   <button id="openLetter">Feliz aniversário meu amor 💜 Clique aqui</button>
 </section>
 
