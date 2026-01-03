@@ -1,23 +1,20 @@
 const playBtn = document.getElementById("playMusic");
 const heart = document.getElementById("heart");
 const photo = document.getElementById("photo");
+const music = document.getElementById("music");
 const heartsContainer = document.querySelector(".hearts");
 
-// Caminho da foto
-const photoPath = "fotos/1.jpg";
-
-// ===== Música dinamicamente para garantir Android =====
-playBtn.addEventListener("click", () => {
-  const audio = new Audio("audio/poesia13.mp3");
-  audio.play().then(()=>console.log("Música tocando!"))
-    .catch(err=>console.log("Erro ao tocar música:", err));
+// ===== Música garantida no Android =====
+playBtn.addEventListener("click", ()=>{
+  music.currentTime = 0;
+  music.play().then(()=>console.log("Música tocando!"))
+  .catch(err=>console.log("Erro ao tocar música:",err));
 });
 
 // ===== Foto aparece ao clicar no coração =====
-heart.addEventListener("click", () => {
-  photo.src = photoPath;
+heart.addEventListener("click", ()=>{
   photo.style.display = "block";
-  photo.style.transform = "scale(1.2)";
+  photo.style.transform = "scale(1.2)"; // zoom
   setTimeout(()=>photo.style.transform="scale(1)",500);
 });
 
