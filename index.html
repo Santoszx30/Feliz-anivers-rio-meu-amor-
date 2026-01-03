@@ -2,39 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para Você 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TELA INICIAL -->
-<div id="loading">
-  <div id="phone">
-    <div class="screen"></div>
-  </div>
+<div id="background"></div>
 
-  <div id="mainHeart">💜</div>
-
-  <p class="hint" id="startBtn">
-    feliz aniversário meu amor. Clique aqui 💜
-  </p>
+<div id="startScreen">
+  <div id="heartStart">💜</div>
+  <p id="startText">feliz aniversário meu amor. Clique aqui 💜</p>
 </div>
 
-<!-- APP PRINCIPAL -->
 <div id="app" class="hidden">
-  <canvas id="particles"></canvas>
-
-  <div id="heartContainer">
-    <div id="bigHeart">💜</div>
-    <img id="photo" src="">
-  </div>
-
-  <div id="textBox"></div>
+  <div id="heart">💜</div>
+  <img id="photo">
+  <div id="text"></div>
 </div>
 
-<audio id="bgMusic" src="audio/musica.mp3" loop></audio>
+<audio id="music" src="audio/musica.mp3"></audio>
 
 <script src="script.js"></script>
 </body>
-  </html>
+</html>
