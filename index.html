@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Para Você 💜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Minha Pretinha 💜</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,34 +11,30 @@
 <canvas id="particles"></canvas>
 
 <!-- TELA 1 -->
-<section id="screen1" class="screen active">
-  <div class="hearts"></div>
-  <div class="floating-words"></div>
-
-  <div class="center">
-    <p class="click-text">
-      feliz aniversário meu amor.<br>
-      <span>Clique aqui 💜</span>
-    </p>
+<section class="screen active" id="screen1">
+  <div class="phone">
+    <p>Carregando a sua beleza...</p>
   </div>
+
+  <div class="floating-words" id="floatingWords"></div>
+
+  <button id="startBtn">▶️ Tocar nossa música</button>
 </section>
 
 <!-- TELA 2 -->
-<section id="screen2" class="screen">
-  <div class="hearts"></div>
-
-  <div id="heart-container">
-    <div id="big-heart">💜</div>
-    <img id="photo" src="" alt="foto">
+<section class="screen" id="screen2">
+  <div id="heartContainer">
+    <img id="photo" src="fotos/1.jpg">
   </div>
 
-  <p id="photo-text"></p>
-  <button id="nextBtn">Passar</button>
+  <h2 id="compliment"></h2>
+
+  <button id="nextPhoto">Passar</button>
+  <button id="revealBtn">Feliz aniversário meu amor 💜 Clique aqui</button>
 </section>
 
 <!-- TELA 3 -->
-<section id="screen3" class="screen">
-  <div class="hearts"></div>
+<section class="screen" id="screen3">
   <div id="letter"></div>
 </section>
 
