@@ -1,10 +1,10 @@
-// ===== VARIÁVEIS =====
 const screens = document.querySelectorAll(".screen");
 const phone = document.getElementById("phone");
 const floatingWords = document.getElementById("floatingWords");
 const music = document.getElementById("music");
 const playMusic = document.getElementById("playMusic");
-const heartBtn = document.getElementById("heartBtn");
+const heart = document.getElementById("heart");
+const heartContainer = document.getElementById("heartContainer");
 const photo = document.getElementById("photo");
 const compliment = document.getElementById("compliment");
 const openLetter = document.getElementById("openLetter");
@@ -26,17 +26,17 @@ words.forEach(word=>{
 
 // ===== CORAÇÕES INFINITOS =====
 setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="heart-float";
-  heart.innerText="💜";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.animationDuration=(8+Math.random()*6)+"s";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),14000);
+  const heartF=document.createElement("div");
+  heartF.className="heart-float";
+  heartF.innerText="💜";
+  heartF.style.left=Math.random()*100+"vw";
+  heartF.style.animationDuration=(8+Math.random()*6)+"s";
+  document.body.appendChild(heartF);
+  setTimeout(()=>heartF.remove(),14000);
 },400);
 
-// ===== EXPLOSÃO DE MINI CORAÇÕES =====
-document.addEventListener("click", e=>{
+// ===== MINI CORAÇÕES E PARTICULAS =====
+document.addEventListener("click",e=>{
   for(let i=0;i<10;i++){
     const mini=document.createElement("div");
     mini.className="mini-heart";
@@ -48,16 +48,11 @@ document.addEventListener("click", e=>{
     document.body.appendChild(mini);
     setTimeout(()=>mini.remove(),1200);
   }
-  spawnParticles(e.clientX,e.clientY,10);
-});
-
-// ===== PARTICULAS BRILHANTES =====
-function spawnParticles(x,y,count=6){
-  for(let i=0;i<count;i++){
-    const p = document.createElement("div");
+  for(let i=0;i<8;i++){
+    const p=document.createElement("div");
     p.className="particle";
-    p.style.left=x+"px";
-    p.style.top=y+"px";
+    p.style.left=e.clientX+"px";
+    p.style.top=e.clientY+"px";
     const dx=(Math.random()-0.5)*200;
     const dy=(Math.random()-0.5)*200;
     p.style.setProperty("--dx",dx+"px");
@@ -66,17 +61,16 @@ function spawnParticles(x,y,count=6){
     document.body.appendChild(p);
     setTimeout(()=>p.remove(),1200);
   }
-}
+});
 
-// ===== MÚSICA =====
+// ===== MUSICA =====
 playMusic.onclick=()=>{
   music.play();
   screens[0].classList.remove("active");
   screens[1].classList.add("active");
-  spawnParticles(window.innerWidth/2,window.innerHeight/2,30);
 };
 
-// ===== FOTOS + ELOGIOS =====
+// ===== FOTOS E ELOGIOS =====
 const photos = Array.from({length:20},(_,i)=>`fotos/${i+1}.jpg`);
 const compliments = [
 "Seus olhos me fazem sorrir sem você perceber",
@@ -104,45 +98,14 @@ let index=0;
 photo.src=photos[0];
 compliment.innerText=compliments[0];
 
-// Zoom automático e transição suave
-heartBtn.onclick=()=>{
+// Zoom e transição
+heartContainer.onclick=()=>{
   index=(index+1)%photos.length;
   photo.src=photos[index];
   compliment.innerText=compliments[index];
   photo.style.transform="scale(1.15)";
-  spawnParticles(window.innerWidth/2,window.innerHeight/2,20);
   setTimeout(()=>photo.style.transform="scale(1)",500);
 };
-
-// ===== ANIMAÇÃO DE PALAVRAS E FOTOS NO CELULAR =====
-function animateLoaderWords(){
-  photos.slice(0,8).forEach((src,i)=>{
-    setTimeout(()=>{
-      const img = document.createElement("img");
-      img.src = src;
-      phone.appendChild(img);
-      img.style.transform="translate(-50%, -50%) scale(1)";
-      spawnParticles(phone.offsetLeft+100,phone.offsetTop+100,6);
-    },i*600);
-  });
-
-  words.forEach((word,i)=>{
-    setTimeout(()=>{
-      const span = document.createElement("span");
-      span.innerText = word;
-      span.style.position = "absolute";
-      span.style.color = ["#ff6ad5","#7f7cff","#ffffff","#ff2b6f"][Math.floor(Math.random()*4)];
-      span.style.fontWeight = "bold";
-      span.style.left = Math.random()*120 - 10 + "%";
-      span.style.top = Math.random()*60 + "%";
-      span.style.transform = "scale(0)";
-      span.style.transition = "transform 0.8s, opacity 0.8s";
-      phone.appendChild(span);
-      setTimeout(()=>{span.style.transform="scale(1)"; span.style.opacity="1";spawnParticles(phone.offsetLeft+100,phone.offsetTop+100,4);},50);
-    },i*400);
-  });
-}
-animateLoaderWords();
 
 // ===== TEXTO FINAL =====
 openLetter.onclick=()=>{
@@ -156,7 +119,7 @@ openLetter.onclick=()=>{
   e com você eu aprendi que amar é construir um laço de
   <strong style="color:#ff6ad5">confiança</strong>,
   <strong style="color:#7f7cff">respeito</strong> e
-  <strong style="color:#9f7cff">admiração</strong>.<br><br>
+  <strong style="color:#ffffff">admiração</strong>.<br><br>
   Você me faz sentir especial melhor do que qualquer pessoa nesse mundo,
   e estar ao seu lado me lembra todos os dias que relacionamento
   é parceria, cuidado e escolha.<br><br>
