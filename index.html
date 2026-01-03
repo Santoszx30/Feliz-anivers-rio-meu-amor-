@@ -8,21 +8,42 @@
 </head>
 <body>
 
-<div id="background"></div>
+<canvas id="particles"></canvas>
 
-<div id="startScreen">
-  <div id="heartStart">💜</div>
-  <p id="startText">feliz aniversário meu amor. Clique aqui 💜</p>
-</div>
+<!-- TELA 1 -->
+<section id="screen1" class="screen active">
+  <div class="hearts"></div>
+  <div class="floating-words"></div>
 
-<div id="app" class="hidden">
-  <div id="heart">💜</div>
-  <img id="photo">
-  <div id="text"></div>
-</div>
+  <div class="center">
+    <p class="click-text">
+      feliz aniversário meu amor.<br>
+      <span>Clique aqui 💜</span>
+    </p>
+  </div>
+</section>
 
-<audio id="music" src="audio/musica.mp3"></audio>
+<!-- TELA 2 -->
+<section id="screen2" class="screen">
+  <div class="hearts"></div>
+
+  <div id="heart-container">
+    <div id="big-heart">💜</div>
+    <img id="photo" src="" alt="foto">
+  </div>
+
+  <p id="photo-text"></p>
+  <button id="nextBtn">Passar</button>
+</section>
+
+<!-- TELA 3 -->
+<section id="screen3" class="screen">
+  <div class="hearts"></div>
+  <div id="letter"></div>
+</section>
+
+<audio id="music" src="audio/poesia13.mp3"></audio>
 
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
