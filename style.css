@@ -1,101 +1,185 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle, #1a0033, #000);
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #1a0026, #000);
   color: white;
-  overflow-x: hidden;
-}
-
-.screen {
-  min-height: 100vh;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.screen.active {
-  display: flex;
-}
-
-/* CELULAR */
-.phone {
-  width: 200px;
-  height: 380px;
-  border: 4px solid #bfaaff;
-  border-radius: 25px;
-  margin-bottom: 15px;
-}
-
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  background: black;
-  border-radius: 20px;
-}
-
-/* TEXTO LOADING */
-.loading-text {
-  color: #bfaaff;
-}
-
-/* ELOGIOS FLUTUANTES */
-.floating {
-  position: absolute;
-  opacity: 0.6;
-  animation: float 10s infinite ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-25px); }
-  100% { transform: translateY(0); }
-}
-
-/* TELA 2 */
-#bigHeart {
-  font-size: 120px;
-  cursor: pointer;
-  margin: 20px;
-}
-
-#slider img {
-  width: 80vw;
-  max-width: 300px;
-  border-radius: 15px;
-  animation: zoom 6s infinite alternate;
-}
-
-@keyframes zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
+  overflow: hidden;
 }
 
 .hidden {
   display: none;
 }
 
-#playMusic {
-  background: transparent;
-  border: 1px solid #bfaaff;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin-bottom: 10px;
+/* ---------- LOADING ---------- */
+#loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#letter {
-  max-width: 90vw;
-  text-align: center;
-  margin-top: 30px;
+.hint {
+  margin-top: 10px;
+  opacity: .8;
 }
 
-#revealText {
-  color: #bfaaff;
+#phone {
+  width: 160px;
+  height: 320px;
+  border: 3px solid #6aa8ff;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  background: black;
+}
+
+.screen-item {
+  position: absolute;
+  font-size: 14px;
+  color: #bfafff;
+  animation: enterPhone 2s forwards;
+}
+
+@keyframes enterPhone {
+  from {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(40%);
+    opacity: 1;
+  }
+}
+
+#mainHeart {
+  font-size: 90px;
   cursor: pointer;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.25); }
+}
+
+/* ---------- APP ---------- */
+#app {
+  padding: 15px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+#musicBtn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #6a0dad;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* ---------- CORAÇÃO ---------- */
+#heartGallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#heart {
+  width: 260px;
+  height: 240px;
+  background: linear-gradient(135deg, #6a0dad, #8b5cf6);
+  transform: rotate(-45deg);
+  position: relative;
+  overflow: hidden;
+  animation: heartBeat 1.8s infinite;
+}
+
+#heart::before,
+#heart::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 240px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+#heart::before {
+  top: -130px;
+  left: 0;
+}
+
+#heart::after {
+  left: 130px;
+  top: 0;
+}
+
+@keyframes heartBeat {
+  50% { transform: rotate(-45deg) scale(1.05); }
+}
+
+#heart img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(45deg);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.photo-out {
+  opacity: 0;
+  transform: rotate(45deg) scale(1.3);
+}
+
+#photoText {
+  margin: 15px;
+  font-size: 18px;
+  color: #bfafff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+#nextPhoto {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #6aa8ff;
+  color: black;
+}
+
+/* ---------- TEXTO FINAL ---------- */
+#textBox {
+  margin-top: 30px;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+/* ---------- PALAVRAS FLUTUANTES ---------- */
+.floating {
+  position: fixed;
+  bottom: 0;
+  font-size: 14px;
+  animation: floatUp 6s linear;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  20% { opacity: .9; }
+  100% { transform: translateY(-140px); opacity: 0; }
+}
+
+/* ---------- PARTÍCULAS ---------- */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  transition: transform 1s ease, opacity 1s ease;
   }
