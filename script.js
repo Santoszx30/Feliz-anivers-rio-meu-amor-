@@ -1,19 +1,30 @@
 const heart = document.getElementById("heart");
 const photo = document.getElementById("photo");
-const heartsContainer = document.querySelector(".hearts");
+const music = document.getElementById("music");
+const heartsContainer = document.getElementById("floating-hearts");
 
-// Mostrar imagem ao clicar no coração
+let photoIndex = 1;
+
 heart.addEventListener("click", () => {
+  // TOCA A MÚSICA (ANDROID SAFE)
+  if (music.paused) {
+    music.play().catch(() => {});
+  }
+
+  // MOSTRA FOTO
+  photo.src = `./fotos/foto${photoIndex}.jpg`;
   photo.classList.add("show");
+
+  photoIndex++;
+  if (photoIndex > 20) photoIndex = 1;
 });
 
-// Corações voando
+// CORAÇÕES SUBINDO
 setInterval(() => {
-  const span = document.createElement("span");
-  span.innerText = "💜";
-  span.style.left = Math.random() * 100 + "vw";
-  span.style.animationDuration = (5 + Math.random() * 5) + "s";
-  heartsContainer.appendChild(span);
-
-  setTimeout(() => span.remove(), 10000);
+  const h = document.createElement("span");
+  h.textContent = "💜";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (4 + Math.random() * 4) + "s";
+  heartsContainer.appendChild(h);
+  setTimeout(() => h.remove(), 8000);
 }, 300);
