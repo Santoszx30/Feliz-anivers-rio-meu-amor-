@@ -1,62 +1,67 @@
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  height:100vh;
-  background: radial-gradient(circle,#3b1c5a,#0a0514);
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  font-family:Arial,sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Botão música */
-#playMusic{
-  padding:12px 28px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#7f7cff,#ff6ad5);
-  color:black;
-  font-size:18px;
-  margin-bottom:20px;
-  cursor:pointer;
+body {
+  height: 100vh;
+  background: radial-gradient(circle, #3b1c5a, #0a0514);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
 }
 
-/* Coração grande */
-#heart{
-  font-size:120px;
-  cursor:pointer;
-  user-select:none;
+/* Coração */
+#heart {
+  font-size: 120px;
+  cursor: pointer;
   animation: pulse 1.5s infinite;
 }
 
-/* Pulso do coração */
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.1);}
-  100%{transform:scale(1);}
+/* Imagem */
+#photo {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Foto */
-#photo{
-  display:none;
-  width:80%;
-  max-width:300px;
-  border-radius:20px;
-  margin-top:20px;
-  transition: transform 0.5s ease;
-  z-index:10;
-  position:relative;
+/* Quando ativa */
+#photo.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Pulso */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 /* Corações flutuando */
-.hearts span{
-  position:fixed;
-  font-size:22px;
-  animation:float linear infinite;
-  pointer-events:none;
+.hearts span {
+  position: fixed;
+  font-size: 22px;
+  animation: float linear infinite;
+  pointer-events: none;
 }
-@keyframes float{
-  from{transform:translateY(100vh);opacity:1;}
-  to{transform:translateY(-10vh);opacity:0;}
+
+@keyframes float {
+  from {
+    transform: translateY(100vh);
+    opacity: 1;
   }
+  to {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
