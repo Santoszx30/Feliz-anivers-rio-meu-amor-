@@ -2,28 +2,21 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <title>Para Você 💜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teste Android</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h2>TESTE FUNCIONAL ANDROID</h2>
-
-  <!-- ÁUDIO COM CONTROLS (OBRIGATÓRIO PARA ANDROID) -->
-  <audio id="music" controls>
-    <source src="audio/poesia13.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
+  <audio id="music" preload="auto">
+    <source src="./audio/poesia13.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Coração -->
+  <div id="floating-hearts"></div>
+
   <div id="heart">💜</div>
 
-  <!-- Imagem (SRC JÁ DEFINIDO) -->
-  <img id="photo" src="fotos/1.jpg" alt="foto">
-
-  <!-- Corações voando -->
-  <div class="hearts"></div>
+  <img id="photo" src="" alt="foto">
 
   <script src="script.js"></script>
 </body>
