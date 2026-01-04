@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Presente para Minha Pretinha 💜</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Android</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Corações flutuando -->
-<div class="hearts"></div>
+  <h2>TESTE FUNCIONAL ANDROID</h2>
 
-<!-- Botão de música -->
-<button id="playMusic">▶️ Tocar nossa música</button>
+  <!-- ÁUDIO COM CONTROLS (OBRIGATÓRIO PARA ANDROID) -->
+  <audio id="music" controls>
+    <source src="audio/poesia13.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
 
-<!-- Coração grande emoji clicável -->
-<span id="heart">💜</span>
+  <!-- Coração -->
+  <div id="heart">💜</div>
 
-<!-- Foto -->
-<img id="photo" src="fotos/1.jpg" alt="foto">
+  <!-- Imagem (SRC JÁ DEFINIDO) -->
+  <img id="photo" src="fotos/1.jpg" alt="foto">
 
-<!-- Áudio pré-carregado -->
-<audio id="music" src="audio/poesia13.mp3" preload="auto"></audio>
+  <!-- Corações voando -->
+  <div class="hearts"></div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
